@@ -1,0 +1,24 @@
+{application, omesc,
+ [
+  {description, "Open Mobile Erlang Switching Centre"},
+  {vsn, "1"},
+  {registered,
+    [omesc_sup,
+     connection_handler
+    ]},
+  {applications,
+    [kernel,
+     stdlib
+    ]},
+  {modules,
+    [omesc_app.erl
+    ,omesc_sup.erl
+    ,connection_handler
+    ,ainterface
+    ,ipaccess
+    ]},
+  {mod, {omesc_app, 
+          [{port, 5000}
+          ]}},
+  {env, []}
+ ]}.

@@ -1,0 +1,23 @@
+Open Mobile Erlang Switching Centre
+------------------------------------------------------------------------------
+Description:
+Erlang implementation of Mobile Switching Centre (MSC).
+
+------------
+Supported BSC:s
+* OpenBSC
+
+------------
+How to *:
+
+compile?
+ > make
+
+run?
+ > ./start.sh
+
+compile and run?
+ > make crun
+
+generate documentation?
+ > make edoc
