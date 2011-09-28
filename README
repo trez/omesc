@@ -1,15 +1,49 @@
 Open Mobile Erlang Switching Centre
 ------------------------------------------------------------------------------
 Description:
+------------
 Erlang implementation of Mobile Switching Centre (MSC).
 
+Basic GSM Network Overview
 ------------
+
+         [HLR]               [SMSC]
+           |                   |
+           C---------+---------?
+                     |
+       [VLR]---?---[MSC]-------?-----[MSC]
+                     |                             ^ NSS
+           +---------A---------+          ..............
+           |                   |                   v BSS
+         [BSC]               [BSC]
+           |                   |
+      +---Abis---+        +---Abis---+
+      |          |        |          |
+    [BTS]      [BTS]    [BTS]      [BTS]
+      |          |        |          |
+   +-Um-+     +-Um-+   +-Um-+     +-Um-+
+   |    |     |    |   |    |     |    |
+   MS  MS     MS  MS   MS  MS     MS  MS
+
+Abbreviations
+------------
+BTS     -  Base Transciever Station
+BSC     -  Base Station Controller
+BSS     -  Base Station Subsystem
+HLR     -  Home Location Register
+MS      -  Mobile Subscriber
+MSC     -  Mobile Switching Centre
+NSS     -  Network Subsystem
+SMSC    -  SMS Centre
+VLR     -  Visitor Location Register
+
+
 Supported BSC:s
+------------
 * OpenBSC
 
-------------
 How to *:
-
+------------
 compile?
  > make
 
