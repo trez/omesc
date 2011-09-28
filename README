@@ -48,7 +48,10 @@ compile?
  > make
 
 run?
- > ./start.sh
+ > make run
+ or
+ # from erlang shell
+ > application:start(omesc).
 
 compile and run?
  > make crun

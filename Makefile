@@ -23,4 +23,4 @@ clean:
 	./rebar clean
 
 run:
-	./start.sh
+	erl -pa ebin -sname omesc -eval 'io:format("~n"), application:start(omesc)'
