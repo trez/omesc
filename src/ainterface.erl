@@ -64,7 +64,7 @@ handle_cast(_Msg, State) ->
 %                                    | {stop, normal, #state{}}
 handle_info({tcp, _Port, Data}, State) ->
     handle_data(State, Data);
-handle_info({tcp_closed, Port}, State) ->
+handle_info({tcp_closed, _Port}, State) ->
     ?debug("closing."),
     {stop, normal, State}.
 
