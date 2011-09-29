@@ -7,23 +7,23 @@ Erlang implementation of Mobile Switching Centre (MSC).
 Basic GSM Network Overview
 ------------
 
-         [HLR]               [SMSC]
-           |                   |
-           C---------+---------?
-                     |
-       [VLR]---?---[MSC]-------?-----[MSC]
-                     |                             ^ NSS
-           +---------A---------+          ..............
-           |                   |                   v BSS
-         [BSC]               [BSC]
-           |                   |
-      +---Abis---+        +---Abis---+
-      |          |        |          |
-    [BTS]      [BTS]    [BTS]      [BTS]
-      |          |        |          |
-   +-Um-+     +-Um-+   +-Um-+     +-Um-+
-   |    |     |    |   |    |     |    |
-   MS  MS     MS  MS   MS  MS     MS  MS
+                    [HLR]               [SMSC]
+                      |                   |
+                      C---------+---------?
+                                |
+            [VLR]-----?-------[MSC]-------?-----[MSC]
+NSS ^                           |                            ^ NSS
+~~~~~~~~~~~           +---------A---------+          ~~~~~~~~~~~~~
+BSS v                 |                   |                  v BSS
+                    [BSC]               [BSC]
+                      |                   |
+                 +---Abis---+        +---Abis---+
+                 |          |        |          |
+               [BTS]      [BTS]    [BTS]      [BTS]
+                 |          |        |          |
+              +-Um-+     +-Um-+   +-Um-+     +-Um-+
+              |    |     |    |   |    |     |    |
+              MS  MS     MS  MS   MS  MS     MS  MS
 
 Abbreviations
 ------------
