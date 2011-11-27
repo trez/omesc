@@ -10,6 +10,7 @@
 
 -export([decode/1, encode/1]).
 
+-include("omesc.hrl").
 -include("ipaccess.hrl").
 
 %% ---------------------------------------------------------------------------
@@ -31,14 +32,9 @@ decode_ipa(Data) ->
     case Data of
         <<?IPA_PING>>   -> #ipa_ping{};
         <<?IPA_PONG>>   -> #ipa_pong{};
-        <<?IPA_ID_ACK>> -> #ipa_id_ack{};
-        <<?IPA_LCS_MSG, Rest/binary>> ->
-            decode_pkt_id(Rest)
+        <<?IPA_ID_ACK>> -> #ipa_id_ack{}
     end.
 
-decode_pkt_id(<<SLR:24, Packet_ID:8, Rest/binary>>)->
-    #ipa_lcs_msg{slr = SLR, pkt_id = Packet_ID, payload = Rest}.
-    
 %% @private
 decode_sccp(Data) ->
     #ipa_sccp{payload = Data}.
@@ -54,9 +50,6 @@ encode(#ipa_pong{})->
     <<0,1,?IPA_PROT_IPA, ?IPA_PONG>>;
 encode(#ipa_id_ack{})->
     <<0,1,?IPA_PROT_IPA, ?IPA_ID_ACK>>;
-encode(#ipa_lcs_msg{payload = Data})->
-    Length = size(Data),
-    <<0, Length, ?IPA_PROT_IPA, Data/binary>>;
-encode(#ipa_sccp{payload = Data})->       
+encode(#ipa_sccp{payload = Data})->
     Length = size(Data),
     <<0, Length, ?IPA_PROT_SCCP, Data/binary>>.
